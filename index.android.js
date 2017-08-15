@@ -11,19 +11,22 @@ import {
   Text,
   View
 } from 'react-native';
-import ViewSample from './view';
-import TextSample from './text';
-import ImageSample from './image';
-import ButtonSample from './button';
-import FlexSample from './flex';
+import ViewSample from './sample/view';
+import TextSample from './sample/text';
+import ImageSample from './sample/image';
+import ButtonSample from './sample/button';
+import FlexSample from './sample/flex';
+import ScrollView from './sample/scrollView';
+import FlatList from './sample/flatList';
+import FetchSample from './sample/fetch';
+import RefreshSample from './sample/refresh';
 import ListItem from './ListItem';
-import ScrollView from './scrollView';
 import List from './List';
 
 export default class sample1 extends Component {
   render() {
     return (
-      <List />
+      <ViewSample />
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {
   FlatList,
+  View,
+  Text,
 } from 'react-native';
 import ListItem from './ListItem';
 
@@ -8,29 +10,42 @@ export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // 預設載入
+      isRefreshing: true,
       data: [],
       page: 0
     };
   }
   
+  // componentDidMount 載入後抓第一筆資料
   async componentDidMount() {
     await this.getData(0)
+  }
+  
+  // 整理資料
+  format = (array) => {
+    return array.map((data) => {
+      return {
+        // 整理資料格式符合 ListItem props
+      }
+    })
   }
   
   getData = async(page) => {
     try {
       // 這裡要記得改成自己電腦的 IP
-      let response = await fetch(`http://192.168.2.100:1337/users?_page=${page}&_limit=10`);
+      const IP ='192.168.2.101';
+      // 可以使用的 API
+      // http://${IP}:1337/pokemons/1
+      // http://${IP}:1337/users/1
+      let response = await fetch(`http://${IP}:1337/users?_page=${page}&_limit=10`);
       let responseJson = await response.json();
-      console.log(responseJson);
+      console.log('responseJson', responseJson);
+      const data = this.format(responseJson);
       if (page === 0) {
-        this.setState({
-          data: responseJson,
-        })
+        // 第一筆資料，記得關掉 loading
       } else {
-        this.setState({
-          data: [...this.state.data, ...responseJson],
-        })
+        // 滾動加載更新資料
       }
       return responseJson;
     } catch (e) {
@@ -41,25 +56,25 @@ export default class List extends Component {
   render() {
     return (
       <FlatList
-        data={[
-          {title: 'title1', key: 1},
-          {title: '標題2', key: 2},
-          {title: '標題3', key: 3},
-          {title: '標題4', key: 4},
-          {title: '標題5', key: 5},
-          {title: '標題6', key: 6},
-          {title: '標題7', key: 7},
-        ]}
-        renderItem={({item}) => <ListItem key={item.key} title={item.title}/>}
-        onEndReached={() => {
-          this.setState({
-            page: this.state.page + 1
-          }, () => {
-            this.getData(this.state.page)
-          })
+        data={
+          // 資料
+          [{ title: 'title'  }, { title: 'title2'  },{ title: 'title3'  }]
+        }
+        renderItem={({item}) => {
+          // return 剛剛實作的 ListItem
+          return <Text>{item.title}</Text>
         }}
-        refreshing={false}
-        onRefresh={() => {}}
+        onEndReached={() => {
+          // 滑到底部的時候加載新資料
+        }}
+        refreshing={this.state.isRefreshing}
+        onRefresh={() => {
+          // 下拉刷新
+        }}
+        ItemSeparatorComponent={({highlighted}) => {
+          // return 簡單的分隔線
+          return null;
+        }}
       />
     );
   }
