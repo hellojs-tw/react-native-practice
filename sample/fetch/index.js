@@ -21,7 +21,7 @@ export default class FetchSample extends Component {
   getData = async(page) => {
     try {
       // 這裡要記得改成自己電腦的 IP
-      const IP ='192.168.2.101';
+      const IP ='192.168.57.1';
       let response = await fetch(`http://${IP}:1337/users/1`);
       let responseJson = await response.json();
       console.log(responseJson);

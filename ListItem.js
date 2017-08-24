@@ -3,8 +3,7 @@ import {
   View,
   StyleSheet,
   Text,
-  Image,
-  TouchableOpacity,
+  Image
 } from 'react-native';
 
 export default class ListItem extends Component {
@@ -12,29 +11,39 @@ export default class ListItem extends Component {
     title: PropTypes.string,
     desc: PropTypes.string,
     image: PropTypes.string,
-    onPress: PropTypes.func,
   }
   static defaultProps = {
     title: '標題',
     desc: '內容',
     image: 'https://robohash.org/eaetin.png?size=150x150&set=set1',
-    onPress: () => {},
-   }
+  }
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
-      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
+      <View style={{ flexDirection: 'row', height: 100, padding: 10, backgroundColor: '#eee' }}>
+       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Image
-          style={{ height: 80, width: 80 }}
+          style={{ height: 80, width: 80, borderRadius: 40, borderWidth: 2, borderColor: '#bbb' }}
           source={{ uri: this.props.image }}
         />
-        <Text>
-          {this.props.title}
-        </Text>
-      </TouchableOpacity>
+       </View>
+       <View style={{
+          flex: 3,
+          justifyContent: 'center',
+          marginLeft: 20,
+       }}
+       >
+          <Text style={{ fontSize: 20, fontWeight: '500'  }}>
+            {this.props.title}
+          </Text>
+          <Text>
+            {this.props.desc}
+          </Text>
+       </View>
+      </View>
     );
   }
 }
@@ -42,9 +51,7 @@ export default class ListItem extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    height: 100,
-    padding: 10,
-    backgroundColor: '#eee',
+    flex: 1,
+    padding: 30,
   },
 })
