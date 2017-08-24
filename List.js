@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   FlatList,
   View,
-  Text,
 } from 'react-native';
 import ListItem from './ListItem';
 
@@ -10,7 +9,6 @@ export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // 預設載入
       isRefreshing: true,
       data: [],
       page: 0
@@ -22,11 +20,13 @@ export default class List extends Component {
     await this.getData(0)
   }
   
-  // 整理資料
+  // 整理資料讓 ListItem 能使用
   format = (array) => {
     return array.map((data) => {
       return {
-        // 整理資料格式符合 ListItem props
+        title: data.name,
+        desc: data.job_title,
+        image: data.avatar,
       }
     })
   }
@@ -34,18 +34,22 @@ export default class List extends Component {
   getData = async(page) => {
     try {
       // 這裡要記得改成自己電腦的 IP
-      const IP ='192.168.2.101';
+      const IP ='192.168.57.1';
       // 可以使用的 API
       // http://${IP}:1337/pokemons/1
       // http://${IP}:1337/users/1
       let response = await fetch(`http://${IP}:1337/users?_page=${page}&_limit=10`);
       let responseJson = await response.json();
-      console.log('responseJson', responseJson);
       const data = this.format(responseJson);
       if (page === 0) {
-        // 第一筆資料，記得關掉 loading
+        this.setState({
+          isRefreshing: false,
+          data,
+        });
       } else {
-        // 滾動加載更新資料
+        this.setState({
+          data: [...this.state.data, ...data],
+        });
       }
       return responseJson;
     } catch (e) {
@@ -56,25 +60,25 @@ export default class List extends Component {
   render() {
     return (
       <FlatList
-        data={
-          // 資料
-          [{ title: 'title'  }, { title: 'title2'  },{ title: 'title3'  }]
-        }
-        renderItem={({item}) => {
-          // return 剛剛實作的 ListItem
-          return <Text>{item.title}</Text>
-        }}
+        data={this.state.data}
+        renderItem={({item}) => <ListItem {...item}/>}
         onEndReached={() => {
-          // 滑到底部的時候加載新資料
+          this.setState({
+            page: this.state.page + 1
+          }, () => {
+            this.getData(this.state.page)
+          })
         }}
         refreshing={this.state.isRefreshing}
         onRefresh={() => {
-          // 下拉刷新
+          this.setState({
+            isRefreshing: true
+          });
+          this.getData(0);
         }}
-        ItemSeparatorComponent={({highlighted}) => {
-          // return 簡單的分隔線
-          return null;
-        }}
+        ItemSeparatorComponent={
+          ({highlighted}) => <View style={{ height: 1, backgroundColor: '#000'  }} />
+        }
       />
     );
   }

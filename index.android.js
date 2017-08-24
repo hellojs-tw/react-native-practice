@@ -26,7 +26,7 @@ import List from './List';
 export default class sample1 extends Component {
   render() {
     return (
-      <ViewSample />
+      <List />
     );
   }
 }
