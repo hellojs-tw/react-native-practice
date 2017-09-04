@@ -16,12 +16,12 @@ export default class List extends Component {
       page: 0
     };
   }
-  
+
   // componentDidMount 載入後抓第一筆資料
   async componentDidMount() {
     await this.getData(0)
   }
-  
+
   // 整理資料
   format = (array) => {
     return array.map((data) => {
@@ -30,11 +30,11 @@ export default class List extends Component {
       }
     })
   }
-  
-  getData = async(page) => {
+
+  getData = async (page) => {
     try {
       // 這裡要記得改成自己電腦的 IP
-      const IP ='192.168.2.101';
+      const IP = '192.168.2.101';
       // 可以使用的 API
       // http://${IP}:1337/pokemons/1
       // http://${IP}:1337/users/1
@@ -52,15 +52,15 @@ export default class List extends Component {
       console.error(e);
     }
   }
-  
+
   render() {
     return (
       <FlatList
         data={
           // 資料
-          [{ title: 'title'  }, { title: 'title2'  },{ title: 'title3'  }]
+          [{ title: 'title' }, { title: 'title2' }, { title: 'title3' }]
         }
-        renderItem={({item}) => {
+        renderItem={({ item }) => {
           // return 剛剛實作的 ListItem
           return <Text>{item.title}</Text>
         }}
@@ -71,7 +71,7 @@ export default class List extends Component {
         onRefresh={() => {
           // 下拉刷新
         }}
-        ItemSeparatorComponent={({highlighted}) => {
+        ItemSeparatorComponent={({ highlighted }) => {
           // return 簡單的分隔線
           return null;
         }}
