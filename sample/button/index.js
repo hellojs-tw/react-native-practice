@@ -19,9 +19,10 @@ export default class ButtonSample extends Component {
   }
 
   render() {
+
     const buttonProps = {
-      // onPress: this.onPress,
-      onPress: () => {},
+      onPress: this.onPress,
+      // onPress: () => {},
       style: styles.button,
       // activeOpacity: 0
       hitSlop: {
@@ -31,6 +32,8 @@ export default class ButtonSample extends Component {
         right: 100
       }
     };
+
+
     return (
       <View style={styles.container}>
       
@@ -49,7 +52,7 @@ export default class ButtonSample extends Component {
           <Text style={styles.buttonText}>TouchableHighlight</Text>
         </TouchableHighlight>
         
-        <TouchableNativeFeedback
+        {/*<TouchableNativeFeedback
           background={TouchableNativeFeedback.SelectableBackground()}
         >
           <View style={[styles.button, { backgroundColor: 'red', width: 150  }]}>
@@ -61,7 +64,7 @@ export default class ButtonSample extends Component {
           <View style={styles.button}>
             <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>*/}
       </View>
     );
   }

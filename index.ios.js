@@ -11,22 +11,23 @@ import {
   Text,
   View
 } from 'react-native';
+import ViewSample from './sample/view';
+import InputSample from './sample/input';
+import TextSample from './sample/text';
+import ImageSample from './sample/image';
+import ButtonSample from './sample/button';
+import FlexSample from './sample/flex';
+import ScrollView from './sample/scrollView';
+import FlatList from './sample/flatList';
+import FetchSample from './sample/fetch';
+import RefreshSample from './sample/refresh';
+import ListItem from './ListItem';
+import List from './List';
 
 export default class sample1 extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <InputSample />
     );
   }
 }
