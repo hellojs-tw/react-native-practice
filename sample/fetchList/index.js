@@ -1,28 +1,29 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import {
   FlatList,
   View,
   Text,
 } from 'react-native';
-import ListItem from './ListItem';
+import ListItem from '../../answer/listItem';
 
+const DEFAULT_PAGE = 1;
 export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // 預設載入
       isRefreshing: true,
       data: [],
-      page: 0
+      page: DEFAULT_PAGE
     };
   }
 
   // componentDidMount 載入後抓第一筆資料
   async componentDidMount() {
-    await this.getData(0)
+    await this.getData(DEFAULT_PAGE)
   }
 
-  // 整理資料
+  // 整理資料讓 ListItem 能使用
   format = (array) => {
     return array.map((data) => {
       return {
@@ -40,31 +41,35 @@ export default class List extends Component {
       let responseJson = await response.json();
       console.log('responseJson', responseJson);
       const data = this.format(responseJson);
-      if (page === 0) {
+      if (page === DEFAULT_PAGE) {
         // 第一筆資料，記得關掉 loading
+        // this.setState({ ... })
       } else {
         // 滾動加載更新資料
+        // this.setState({ ... })
       }
-      return responseJson;
     } catch (e) {
       console.error(e);
     }
   }
 
+
+  _onEndReached = _.debounce(() => {
+    // 滑動到底部加載資料
+  },1000);
+
   render() {
     return (
       <FlatList
         data={
-          // 資料
           [{ title: 'title' }, { title: 'title2' }, { title: 'title3' }]
         }
+        keyExtractor={this._keyExtractor}
         renderItem={({ item }) => {
           // return 剛剛實作的 ListItem
           return <Text>{item.title}</Text>
         }}
-        onEndReached={() => {
-          // 滑到底部的時候加載新資料
-        }}
+        onEndReached={this._onEndReached}
         refreshing={this.state.isRefreshing}
         onRefresh={() => {
           // 下拉刷新

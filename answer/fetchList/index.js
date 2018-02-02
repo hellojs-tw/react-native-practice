@@ -21,18 +21,6 @@ export default class List extends Component {
   async componentDidMount() {
     await this.getData(DEFAULT_PAGE)
   }
-  componentWillUpdate(nextProps, nextState) {
-    console.log('diff', nextProps);
-    if(nextProps.query !== this.props.query) {
-      this.getData(DEFAULT_PAGE);
-    }
-  }
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps !== this.props) {
-  //     console.log('diff');
-  //     this.getData(0);
-  //   }
-  // }
 
   // 整理資料讓 ListItem 能使用
   format = (array) => {
@@ -45,13 +33,13 @@ export default class List extends Component {
     })
   }
   
-  getData = async(page) => {
+  getData = async (page) => {
     console.log('query', this.props.query);
     try {
       // 可以使用的 API
       // http://rn.fuyaode.me/pokemons/1
       // http://rn.fuyaode.me/users/1
-      let response = await fetch(`http://rn.fuyaode.me/users?_page=${page}&_limit=10&name_like=${this.props.query}`);
+      let response = await fetch(`http://rn.fuyaode.me/users?_page=${page}&_limit=10`);
       let responseJson = await response.json();
       const data = this.format(responseJson);
       if (page === DEFAULT_PAGE) {
@@ -93,7 +81,7 @@ export default class List extends Component {
           this.setState({
             isRefreshing: true
           });
-          this.getData(0);
+          this.getData(1);
         }}
         ItemSeparatorComponent={
           ({highlighted}) => <View style={{ height: 1, backgroundColor: '#000'  }} />

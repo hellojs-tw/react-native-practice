@@ -11,9 +11,10 @@ import TextSample from "./sample/text";
 import ImageSample from "./sample/image";
 import ButtonSample from "./sample/button";
 import FlexSample from "./sample/flex";
+import ListItem from "./sample/listItem";
 import ScrollView from "./sample/scrollView";
 import FlatList from "./sample/flatList";
-import FetchSample from "./sample/fetch";
+import List from "./sample/list";
 import RefreshSample from "./sample/refresh";
 import ListItem from "./ListItem";
 import List from "./List";
@@ -23,15 +24,20 @@ import Routes from "./sample/routes";
 import LifeCycle from "./sample/lifeCycle";
 import Counter from "./sample/counter";
 import LotsOfGreetings from "./sample/LotsOfGreetings";
+import UserList from "./sample/userList";
+import FetchSample from "./sample/fetch";
+import FetchList from "./sample/fetchList";
 
-// import AnswerUserList from "./answer/userList";
-// import AnswerList from "./answer/List";
+import AnswerUserList from "./answer/userList";
+import AnswerListItem from "./answer/listItem";
+import AnswerList from "./answer/list";
+import AnswerFetchList from "./answer/fetchList";
 
 export default class sample1 extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <UserList />
+        <ViewSample />
       </View>
     );
   }
