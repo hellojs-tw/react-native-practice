@@ -16,27 +16,28 @@ import ScrollView from "./sample/scrollView";
 import FlatList from "./sample/flatList";
 import List from "./sample/list";
 import RefreshSample from "./sample/refresh";
-import ListItem from "./ListItem";
-import List from "./List";
 import UserList from "./sample/userList";
 import ControlledInput from "./sample/controlledInput";
 import Routes from "./sample/routes";
 import LifeCycle from "./sample/lifeCycle";
 import Counter from "./sample/counter";
 import LotsOfGreetings from "./sample/LotsOfGreetings";
-import UserList from "./sample/userList";
 import FetchSample from "./sample/fetch";
 import FetchList from "./sample/fetchList";
 
-import AnswerUserList from "./answer/userList";
 import AnswerListItem from "./answer/listItem";
 import AnswerList from "./answer/list";
 import AnswerFetchList from "./answer/fetchList";
+import AnswerUserList from "./answer/userList";
+import AnsCounter from './answer/counter';
+import AnsLifeCycle from './answer/lifeCycle';
+import AnsLotsOfGreeting from './answer/LotsOfGreetings';
+import AnsControlledInput from './answer/controlledInput';
 
 export default class sample1 extends Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ marginTop: 20 }}>
         <ViewSample />
       </View>
     );

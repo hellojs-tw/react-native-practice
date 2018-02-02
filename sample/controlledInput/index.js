@@ -8,7 +8,7 @@ export default class ControlledInput extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
+      <View>
         <TextInput placeholder="請輸入..." />
         <Text>{this.state.text} </Text>
       </View>

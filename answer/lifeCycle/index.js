@@ -19,7 +19,7 @@ export default class LifeCycle extends Component {
 
   render() {
     return (
-      <View style={{marginTop: 20}}>
+      <View>
         <ActivityIndicator animating={this.state.isLoading} size="large" color={'#77AA11'} />
       </View>
     );

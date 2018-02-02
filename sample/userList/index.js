@@ -10,7 +10,7 @@ export default class UserList extends Component {
   render() {
     console.log("index", this.state.query);
     return (
-      <View style={{ marginTop: 20 }}>
+      <View>
         <TextInput
           placeholder="請輸入姓名"
           onChangeText={this.onChangeText}

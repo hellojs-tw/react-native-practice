@@ -5,7 +5,7 @@ import Greeting from "./Greeting";
 export default class LotsOfGreetings extends Component {
   render() {
     return (
-      <View style={{ marginTop: 20, alignItems: "center" }}>
+      <View style={{ alignItems: "center" }}>
         <Greeting name="React" />
         <Greeting name="Native" />
         <Greeting name="JavaScript" />

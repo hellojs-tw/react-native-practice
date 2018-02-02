@@ -3,7 +3,7 @@ import { Text, View, TextInput } from "react-native";
 
 export default class ControlledInput extends Component {
   state = {
-    text = 'state 預設值'
+    text: "Hi 我是 state 預設值"
   };
 
   onChangeText = text => {
@@ -13,8 +13,11 @@ export default class ControlledInput extends Component {
   render() {
     return (
       <View>
-        <TextInput defaultValue="input 預設值" onChangeText={this.onChangeText} />
-        <Text> state.text: {this.state.text} </Text>
+        <TextInput
+          defaultValue="我是 input 預設值"
+          onChangeText={this.onChangeText}
+        />
+        <Text style={{color: '#1166AA'}}>Text: {this.state.text} </Text>
       </View>
     );
   }
