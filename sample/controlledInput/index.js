@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { Text, View, TextInput } from "react-native";
 
 export default class ControlledInput extends Component {
-  static state = {
-    text: 'state 預設值'
+  state = {
+    text: "defaultValue"
   };
 
   render() {
     return (
-      <View>
-        <TextInput />
-        <Text> state.text: {this.state.text} </Text>
+      <View style={{ marginTop: 20 }}>
+        <TextInput placeholder="請輸入..." />
+        <Text>{this.state.text} </Text>
       </View>
     );
   }

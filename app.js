@@ -19,15 +19,16 @@ import ListItem from "./ListItem";
 import List from "./List";
 import UserList from "./sample/userList";
 import ControlledInput from './sample/controlledInput';
+import Routes from './sample/routes';
 
-import AnswerUserList from "./answer/userList";
+// import AnswerUserList from "./answer/userList";
 // import AnswerList from "./answer/List";
 
 export default class sample1 extends Component {
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
-        <AnswerUserList />
+      <View style={{ flex: 1 }}>
+        <ControlledInput />
       </View>
     );
   }

@@ -49,14 +49,6 @@ export default class ButtonSample extends Component {
           <Text style={styles.buttonText}>TouchableHighlight</Text>
         </TouchableHighlight>
         
-        <TouchableNativeFeedback
-          background={TouchableNativeFeedback.SelectableBackground()}
-        >
-          <View style={[styles.button, { backgroundColor: 'red', width: 150  }]}>
-            <Text style={styles.buttonText}>Button</Text>
-          </View>
-        </TouchableNativeFeedback>
-        
         <TouchableWithoutFeedback>
           <View style={styles.button}>
             <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
