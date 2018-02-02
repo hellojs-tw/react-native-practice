@@ -32,7 +32,7 @@ export default class sample1 extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView />
+        <ViewSample />
       </View>
     );
   }
