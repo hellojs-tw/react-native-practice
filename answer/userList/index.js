@@ -14,7 +14,7 @@ export default class UserList extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ paddingTop: 20 }}>
         <TextInput placeholder="請輸入姓名" onChangeText={this.onChangeText} />
         <List query={this.state.query} />
       </View>

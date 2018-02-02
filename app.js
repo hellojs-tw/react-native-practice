@@ -15,21 +15,22 @@ import ScrollView from "./sample/scrollView";
 import FlatList from "./sample/flatList";
 import FetchSample from "./sample/fetch";
 import RefreshSample from "./sample/refresh";
-import ListItem from "./ListItem";
-import List from "./List";
+import ListItem from "./sample/list/ListItem";
+import List from "./sample/list";
 import UserList from "./sample/userList";
 import ControlledInput from './sample/controlledInput';
 import Routes from './sample/routes';
 
-// import AnswerUserList from "./answer/userList";
-// import AnswerList from "./answer/List";
+import AnswerUserList from "./answer/userList";
+import AnswerListItem from "./answer/list/ListItem";
+import AnswerList from "./answer/list";
 
 
 export default class sample1 extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <UserList />
+        <AnswerList />
       </View>
     );
   }
