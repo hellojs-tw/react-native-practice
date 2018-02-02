@@ -48,12 +48,10 @@ export default class List extends Component {
   getData = async(page) => {
     console.log('query', this.props.query);
     try {
-      // 這裡要記得改成自己電腦的 IP
-      const IP ='localhost';
       // 可以使用的 API
-      // http://${IP}:1337/pokemons/1
-      // http://${IP}:1337/users/1
-      let response = await fetch(`http://${IP}:1337/users?_page=${page}&_limit=10&name_like=${this.props.query}`);
+      // http://rn.fuyaode.me/pokemons/1
+      // http://rn.fuyaode.me/users/1
+      let response = await fetch(`http://rn.fuyaode.me/users?_page=${page}&_limit=10&name_like=${this.props.query}`);
       let responseJson = await response.json();
       const data = this.format(responseJson);
       if (page === DEFAULT_PAGE) {
