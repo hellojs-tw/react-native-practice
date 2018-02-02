@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, TextInput } from "react-native";
-import List from "../list";
+import List from '../../answer/userList/List';
 
 export default class UserList extends Component {
   state = {

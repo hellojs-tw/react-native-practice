@@ -11,26 +11,28 @@ import TextSample from "./sample/text";
 import ImageSample from "./sample/image";
 import ButtonSample from "./sample/button";
 import FlexSample from "./sample/flex";
+import ListItem from "./sample/listItem";
 import ScrollView from "./sample/scrollView";
 import FlatList from "./sample/flatList";
-import FetchSample from "./sample/fetch";
-import RefreshSample from "./sample/refresh";
-import ListItem from "./sample/list/ListItem";
 import List from "./sample/list";
-import UserList from "./sample/userList";
+import RefreshSample from "./sample/refresh";
 import ControlledInput from './sample/controlledInput';
+import UserList from "./sample/userList";
+import FetchSample from "./sample/fetch";
+import FetchList from "./sample/fetchList";
 import Routes from './sample/routes';
 
 import AnswerUserList from "./answer/userList";
-import AnswerListItem from "./answer/list/ListItem";
+import AnswerListItem from "./answer/listItem";
 import AnswerList from "./answer/list";
+import AnswerFetchList from "./answer/fetchList";
 
 
 export default class sample1 extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <AnswerList />
+        <ScrollView />
       </View>
     );
   }

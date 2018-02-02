@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   ScrollView,
 } from 'react-native';
-import ListItem from '../list/ListItem';
+import ListItem from '../../answer/listItem';
 
 export default class ScrollViewSample extends Component {
   render() {

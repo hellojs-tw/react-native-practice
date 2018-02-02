@@ -1,78 +1,231 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import {
   FlatList,
   View,
-  Text,
 } from 'react-native';
-import ListItem from './ListItem';
+import ListItem from "../../answer/listItem";
+
 
 export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // 預設載入
-      isRefreshing: true,
-      data: [],
-      page: 0
+      data: [
+        {
+          "id": 1,
+          "email": "cbilbie0@cyberchimps.com",
+          "gender": "Male",
+          "avatar": "https://robohash.org/eaetin.png?size=150x150&set=set1",
+          "name": "Cointon Bilbie",
+          "job_title": "Senior Cost Accountant",
+          "company": "King LLC"
+        },
+        {
+          "id": 2,
+          "email": "hallcoat1@rakuten.co.jp",
+          "gender": "Male",
+          "avatar": "https://robohash.org/doloresquiaquae.png?size=150x150&set=set1",
+          "name": "Hewet Allcoat",
+          "job_title": "Food Chemist",
+          "company": "Fisher Group"
+        },
+        {
+          "id": 3,
+          "email": "gdackombe2@samsung.com",
+          "gender": "Male",
+          "avatar": "https://robohash.org/reruminciduntperspiciatis.png?size=150x150&set=set1",
+          "name": "Griff Dackombe",
+          "job_title": "Account Executive",
+          "company": "Boyle, Schmitt and Brakus"
+        },
+        {
+          "id": 4,
+          "email": "dsommerled3@ning.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/aliquamquiaipsa.png?size=150x150&set=set1",
+          "name": "Dolf Sommerled",
+          "job_title": "Programmer Analyst III",
+          "company": "Stanton, Braun and Crooks"
+        },
+        {
+          "id": 5,
+          "email": "ovondrys4@goo.gl",
+          "gender": "Male",
+          "avatar": "https://robohash.org/mollitiaiurequo.png?size=150x150&set=set1",
+          "name": "Ozzie Vondrys",
+          "job_title": "Budget/Accounting Analyst II",
+          "company": "Goodwin-Predovic"
+        },
+        {
+          "id": 6,
+          "email": "bemanson5@icio.us",
+          "gender": "Female",
+          "avatar": "https://robohash.org/nemobeataemaxime.png?size=150x150&set=set1",
+          "name": "Brandi Emanson",
+          "job_title": "Quality Control Specialist",
+          "company": "Considine-Goldner"
+        },
+        {
+          "id": 7,
+          "email": "kchason6@biglobe.ne.jp",
+          "gender": "Female",
+          "avatar": "https://robohash.org/debitissintconsectetur.png?size=150x150&set=set1",
+          "name": "Kori Chason",
+          "job_title": "Occupational Therapist",
+          "company": "Cartwright Group"
+        },
+        {
+          "id": 8,
+          "email": "ndanhel7@mapquest.com",
+          "gender": "Male",
+          "avatar": "https://robohash.org/optioutfugit.png?size=150x150&set=set1",
+          "name": "Norine Danhel",
+          "job_title": "Research Associate",
+          "company": "Dietrich, Ondricka and Bernier"
+        },
+        {
+          "id": 9,
+          "email": "fpollastrino8@ucoz.ru",
+          "gender": "Male",
+          "avatar": "https://robohash.org/minusveritatistemporibus.png?size=150x150&set=set1",
+          "name": "Franky Pollastrino",
+          "job_title": "Information Systems Manager",
+          "company": "Keeling-Upton"
+        },
+        {
+          "id": 10,
+          "email": "bwathey9@barnesandnoble.com",
+          "gender": "Male",
+          "avatar": "https://robohash.org/eaquenobisenim.png?size=150x150&set=set1",
+          "name": "Bowie Wathey",
+          "job_title": "Information Systems Manager",
+          "company": "Bogan and Sons"
+        },
+        {
+          "id": 11,
+          "email": "boheaneya@shutterfly.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/autemeosquia.png?size=150x150&set=set1",
+          "name": "Benito O'Heaney",
+          "job_title": "Chemical Engineer",
+          "company": "Borer Group"
+        },
+        {
+          "id": 12,
+          "email": "cturrillb@earthlink.net",
+          "gender": "Male",
+          "avatar": "https://robohash.org/rerumsuscipitnulla.png?size=150x150&set=set1",
+          "name": "Cherry Turrill",
+          "job_title": "Marketing Manager",
+          "company": "Johnson Inc"
+        },
+        {
+          "id": 13,
+          "email": "rvedstrac@hibu.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/seddelectusreprehenderit.png?size=150x150&set=set1",
+          "name": "Randi Vedstra",
+          "job_title": "VP Accounting",
+          "company": "Braun, VonRueden and Goodwin"
+        },
+        {
+          "id": 14,
+          "email": "ajahneld@harvard.edu",
+          "gender": "Female",
+          "avatar": "https://robohash.org/nequequaeipsa.png?size=150x150&set=set1",
+          "name": "Astrid Jahnel",
+          "job_title": "Marketing Assistant",
+          "company": "Wintheiser-Boyer"
+        },
+        {
+          "id": 15,
+          "email": "sslaytone@hao123.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/inciduntofficiaet.png?size=150x150&set=set1",
+          "name": "Shoshanna Slayton",
+          "job_title": "Mechanical Systems Engineer",
+          "company": "Russel-Schuppe"
+        },
+        {
+          "id": 16,
+          "email": "lhowittf@youtube.com",
+          "gender": "Male",
+          "avatar": "https://robohash.org/facerererumaspernatur.png?size=150x150&set=set1",
+          "name": "Levi Howitt",
+          "job_title": "VP Accounting",
+          "company": "Kohler-Heathcote"
+        },
+        {
+          "id": 17,
+          "email": "wgeaneg@yelp.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/saepeiustofugiat.png?size=150x150&set=set1",
+          "name": "Winnah Geane",
+          "job_title": "Associate Professor",
+          "company": "Schultz, Thiel and Rodriguez"
+        },
+        {
+          "id": 18,
+          "email": "icancelierh@123-reg.co.uk",
+          "gender": "Female",
+          "avatar": "https://robohash.org/minuslaborevoluptatem.png?size=150x150&set=set1",
+          "name": "Ives Cancelier",
+          "job_title": "Speech Pathologist",
+          "company": "Goodwin Group"
+        },
+        {
+          "id": 19,
+          "email": "ctebbei@weibo.com",
+          "gender": "Female",
+          "avatar": "https://robohash.org/etfugiatblanditiis.png?size=150x150&set=set1",
+          "name": "Craggie Tebbe",
+          "job_title": "Marketing Assistant",
+          "company": "Larkin LLC"
+        },
+        {
+          "id": 20,
+          "email": "dlej@cpanel.net",
+          "gender": "Male",
+          "avatar": "https://robohash.org/adipiscirecusandaesuscipit.png?size=150x150&set=set1",
+          "name": "Deerdre Le Estut",
+          "job_title": "Information Systems Manager",
+          "company": "Collins LLC"
+        }
+      ],
     };
   }
 
-  // componentDidMount 載入後抓第一筆資料
-  async componentDidMount() {
-    await this.getData(0)
-  }
-
-  // 整理資料
+  // 整理資料讓 ListItem 能使用
   format = (array) => {
     return array.map((data) => {
       return {
-        // 整理資料格式符合 ListItem props
+        // title: data.name,
+        // desc: data.job_title,
+        // image: data.avatar,
       }
     })
   }
 
-  getData = async (page) => {
-    try {
-      // 可以使用的 API
-      // http://rn.fuyaode.me/pokemons/1
-      // http://rn.fuyaode.me/users/1
-      let response = await fetch(`http://rn.fuyaode.me/users?_page=${page}&_limit=10`);
-      let responseJson = await response.json();
-      console.log('responseJson', responseJson);
-      const data = this.format(responseJson);
-      if (page === 0) {
-        // 第一筆資料，記得關掉 loading
-      } else {
-        // 滾動加載更新資料
-      }
-      return responseJson;
-    } catch (e) {
-      console.error(e);
-    }
-  }
 
+  _keyExtractor = (item, index) => index;
+  
   render() {
     return (
       <FlatList
-        data={
-          // 資料
-          [{ title: 'title' }, { title: 'title2' }, { title: 'title3' }]
+        // 填入並格式化清單資料
+        data={[{}]}
+        keyExtractor={this._keyExtractor}
+        // 
+        renderItem={({item}) => {
+          // return ListItem 並放入 props
+          return <ListItem />
+        }}
+        ItemSeparatorComponent={
+          ({highlighted}) => {
+            // return 分隔線
+          }
         }
-        renderItem={({ item }) => {
-          // return 剛剛實作的 ListItem
-          return <Text>{item.title}</Text>
-        }}
-        onEndReached={() => {
-          // 滑到底部的時候加載新資料
-        }}
-        refreshing={this.state.isRefreshing}
-        onRefresh={() => {
-          // 下拉刷新
-        }}
-        ItemSeparatorComponent={({ highlighted }) => {
-          // return 簡單的分隔線
-          return null;
-        }}
       />
     );
   }

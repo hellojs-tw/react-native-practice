@@ -3,7 +3,7 @@ import {
   ScrollView,
   RefreshControl,
 } from 'react-native';
-import ListItem from '../list/ListItem';
+import ListItem from '../../answer/listItem';
 
 export default class RefreshSample extends Component {
   constructor(props) {
