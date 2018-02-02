@@ -18,12 +18,14 @@ import RefreshSample from "./sample/refresh";
 import ListItem from "./ListItem";
 import List from "./List";
 import UserList from "./sample/userList";
-import ControlledInput from './sample/controlledInput';
-import Routes from './sample/routes';
+import ControlledInput from "./sample/controlledInput";
+import Routes from "./sample/routes";
+import LifeCycle from "./sample/lifeCycle";
+import Counter from "./sample/counter";
+import LotsOfGreetings from "./sample/LotsOfGreetings";
 
 // import AnswerUserList from "./answer/userList";
 // import AnswerList from "./answer/List";
-
 
 export default class sample1 extends Component {
   render() {
