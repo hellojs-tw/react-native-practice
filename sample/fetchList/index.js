@@ -58,6 +58,8 @@ export default class List extends Component {
     // 滑動到底部加載資料
   },1000);
 
+  _keyExtractor = (item, index) => index;
+
   render() {
     return (
       <FlatList

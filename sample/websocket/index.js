@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import _ from 'lodash';
 
-export default class FetchSample extends Component {
+export default class WebsocketSample extends Component {
   constructor(props) {
     super(props);
     this.state = {
