@@ -24,6 +24,7 @@ import Counter from "./sample/counter";
 import LotsOfGreetings from "./sample/LotsOfGreetings";
 import FetchSample from "./sample/fetch";
 import FetchList from "./sample/fetchList";
+import WebsocketSample from "./sample/websocket";
 
 import AnswerListItem from "./answer/listItem";
 import AnswerList from "./answer/list";
@@ -38,7 +39,7 @@ export default class sample1 extends Component {
   render() {
     return (
       <View style={{flex: 1, marginTop: 20 }}>
-        <ViewSample />
+        <WebsocketSample />
       </View>
     );
   }
