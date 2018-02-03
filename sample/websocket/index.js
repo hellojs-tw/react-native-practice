@@ -75,7 +75,7 @@ export default class FetchSample extends Component {
           justifyContent: "center"
         }}
       >
-        <Text>{item.text}</Text>
+        <Text style={{ color: item.color }}>{item.text}</Text>
       </View>
     )
   }
