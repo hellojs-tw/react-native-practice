@@ -37,7 +37,7 @@ import AnsControlledInput from './answer/controlledInput';
 export default class sample1 extends Component {
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
+      <View style={{flex: 1, marginTop: 20 }}>
         <ViewSample />
       </View>
     );
