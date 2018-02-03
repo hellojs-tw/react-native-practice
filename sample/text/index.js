@@ -10,9 +10,9 @@ export default class TextSample extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text1}>HelloJS</Text>
+        <Text style={styles.text1}>Hello</Text>
         <Text style={styles.baseText}>
-          <Text style={styles.title}>HelloJS</Text>
+          <Text style={styles.title}>Hello</Text>
           <Text style={styles.desc}> Good</Text>
         </Text>
         <Text 
