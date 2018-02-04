@@ -43,7 +43,7 @@ export default class sample1 extends Component {
   render() {
     return (
       <View style={{flex: 1, marginTop: 20 }}>
-        <AnsRoutes />
+        <Routes />
       </View>
     );
   }
