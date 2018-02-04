@@ -20,8 +20,6 @@ export default class FetchSample extends Component {
 
   getData = async (page) => {
     try {
-      // 這裡要記得改成自己電腦的 IP
-      const IP = 'localhost';
       let response = await fetch(`http://rn.fuyaode.me/users/1`);
       let responseJson = await response.json();
       console.log(responseJson);

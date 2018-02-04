@@ -27,14 +27,25 @@ export default class ListItem extends Component {
   
   render() {
     return (
-      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
-        <Image
-          style={{ height: 80, width: 80 }}
-          source={{ uri: this.props.image }}
-        />
-        <Text>
-          {this.props.title}
-        </Text>
+      <TouchableOpacity style={styles.content} onPress={this.props.onPress}>
+        <View style={{ 
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center' }}
+        >
+          <Image
+            style={styles.image}
+            source={{ uri: this.props.image }}
+          />
+       </View>
+       <View style={styles.desc}>
+          <Text style={{ fontSize: 20, fontWeight: '500'  }}>
+            {this.props.title}
+          </Text>
+          <Text>
+            {this.props.desc}
+          </Text>
+       </View>
       </TouchableOpacity>
     );
   }
@@ -42,10 +53,23 @@ export default class ListItem extends Component {
 
 
 const styles = StyleSheet.create({
-  container: {
+  content: {
+    marginTop: 40,
     flexDirection: 'row',
     height: 100,
     padding: 10,
     backgroundColor: '#eee',
   },
+  image: {
+    height: 80,
+    width: 80,
+    borderRadius: 40,
+    borderWidth: 2,
+    borderColor: '#bbb' 
+  },
+  desc: {
+    flex: 3,
+    justifyContent: 'center',
+    marginLeft: 20,
+  }
 })

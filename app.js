@@ -26,6 +26,8 @@ import FetchSample from "./sample/fetch";
 import FetchList from "./sample/fetchList";
 import Drawer from "./sample/drawer";
 import Tabs from "./sample/Tabs";
+import WebsocketSample from "./sample/websocket";
+import AsyncStorageSample from "./sample/asyncStorage";
 
 import AnswerListItem from "./answer/listItem";
 import AnswerList from "./answer/list";
@@ -35,12 +37,13 @@ import AnsCounter from "./answer/counter";
 import AnsLifeCycle from "./answer/lifeCycle";
 import AnsLotsOfGreeting from "./answer/LotsOfGreetings";
 import AnsControlledInput from "./answer/controlledInput";
+import AnsRoutes from "./answer/routes";
 
 export default class sample1 extends Component {
   render() {
     return (
-      <View style={{ flex: 1, marginTop: 20 }}>
-        <LifeCycle />
+      <View style={{flex: 1, marginTop: 20 }}>
+        <AnsRoutes />
       </View>
     );
   }

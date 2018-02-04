@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Text, View } from 'react-native'
-
+import { Actions } from 'react-native-router-flux';
 export default class Counter extends Component {
   state = {
     count: 0
@@ -11,6 +11,7 @@ export default class Counter extends Component {
     this.setState( prevState => ({
       count: prevState.count + 1
     }));
+    Actions.home();
   }
 
   render() {
